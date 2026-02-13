@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Enquiry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay">
+<div class="admin-link">
+    <a href="login.html">Admin Login</a>
+</div>
+
+    <h1>Welcome to Our Courses</h1>
+
+    <!-- Course Dropdown -->
+    <select id="courseSelect" onchange="showRegisterOption()">
+        <option value="">-- Select Course --</option>
+        <option value="Python">Python Course</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Data Science">Data Science</option>
+    </select>
+
+    <!-- Registration Message -->
+    <div id="registerMessage" style="display:none;">
+        <p>If you wish to register for this course, please register below.</p>
+        <button onclick="showForm()">Register Here</button>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="registrationForm" style="display:none;">
+        <h3>Course Registration</h3>
+
+        <input type="text" id="name" placeholder="Enter Name"><br>
+        <input type="text" id="mobile" placeholder="Enter Mobile"><br>
+
+        <button onclick="submitData()">Submit</button>
+
+        <p id="msg"></p>
+    </div>
+
+</div>
+
+<script>
+
+function showRegisterOption() {
+    const course = document.getElementById("courseSelect").value;
+
+    if (course !== "") {
+        document.getElementById("registerMessage").style.display = "block";
+    } else {
+        document.getElementById("registerMessage").style.display = "none";
+        document.getElementById("registrationForm").style.display = "none";
+    }
+}
+
+function showForm() {
+    document.getElementById("registrationForm").style.display = "block";
+}
+
+function submitData() {
+    const name = document.getElementById("name").value;
+    const mobile = document.getElementById("mobile").value;
+    const course = document.getElementById("courseSelect").value;
+
+    fetch("/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, mobile, course })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("msg").innerText = data.message;
+    });
+}
+
+</script>
+
+</body>
+</html>

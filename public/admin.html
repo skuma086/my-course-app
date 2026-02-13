@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>All User Records</h2>
+
+<table border="1" id="table">
+<tr>
+<th>Name</th>
+<th>Mobile</th>
+<th>Course</th>
+</tr>
+</table>
+
+<br>
+<a href="/logout">Logout</a>
+
+<script>
+
+fetch("/admin-data")
+.then(res => {
+    if (!res.ok) {
+        alert("Please login first");
+        window.location.href = "login.html";
+        return;
+    }
+    return res.json();
+})
+.then(data => {
+
+    const table = document.getElementById("table");
+
+    data.forEach(user => {
+        const row = table.insertRow();
+        row.insertCell(0).innerText = user.name;
+        row.insertCell(1).innerText = user.mobile;
+        row.insertCell(2).innerText = user.course || "";
+    });
+
+});
+
+</script>
+
+</body>
+</html>
