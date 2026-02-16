@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2 id="courseTitle"></h2>
+<p id="courseDescription"></p>
+
+<a href="index.html">Back to Home</a>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const course = params.get("course");
+
+    const data = {
+        webdev: {
+            title: "Web Development",
+            description: "Learn HTML, CSS, JavaScript, React."
+        },
+        python: {
+            title: "Python Programming",
+            description: "Learn Python, Django, Data Science."
+        },
+        digital: {
+            title: "Digital Marketing",
+            description: "SEO, Social Media Marketing, Ads."
+        }
+    };
+
+    if (data[course]) {
+        document.getElementById("courseTitle").innerText = data[course].title;
+        document.getElementById("courseDescription").innerText = data[course].description;
+    }
+</script>
+
+</body>
+</html>
