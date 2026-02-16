@@ -1,78 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Course Website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
-<div class="overlay">
+<header class="navbar">
+    <h2>My Training Institute</h2>
 
-    <h1>Welcome to Our Training Institute</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="register.html">Register</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+</header>
 
-    <!-- Course Dropdown -->
-    <div class="box">
-        <label>Select Course:</label>
-        <select id="course">
-            <option value="">-- Select Course --</option>
-            <option value="course1.html">Web Development</option>
-            <option value="course2.html">Data Analytics</option>
-        </select>
 
-        <br><br>
+<section class="hero">
+    <h1>Learn Skills That Change Your Life</h1>
+    <p>Select a course below</p>
+</section>
 
-        <button onclick="goToCourse()">View Course</button>
-    </div>
 
-    <!-- Register Section -->
-    <div class="box">
-        <h3>Want to Register?</h3>
-        <button onclick="location.href='register.html'">
-            Register Now
+<section class="courses">
+
+    <div class="card">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, JavaScript</p>
+        <button onclick="location.href='course1.html'">
+            View Course
         </button>
     </div>
 
-    <!-- Video Section -->
-    <div class="box">
-        <h3>Watch Demo Class</h3>
-
-        <video width="300" controls>
-            <source src="videos/demo.mp4" type="video/mp4">
-        </video>
-
-        <br><br>
-
-        OR
-
-        <br><br>
-
-        <a href="https://youtube.com" target="_blank">
-            Watch on YouTube
-        </a>
-    </div>
-
-    <!-- Admin Login -->
-    <div class="box">
-        <button onclick="location.href='admin.html'">
-            Admin Login
+    <div class="card">
+        <h3>Data Analytics</h3>
+        <p>Excel, Power BI, Python</p>
+        <button onclick="location.href='course2.html'">
+            View Course
         </button>
     </div>
 
-</div>
-
-<script>
-function goToCourse() {
-    var course = document.getElementById("course").value;
-
-    if(course === "") {
-        alert("Please select a course");
-        return;
-    }
-
-    window.location.href = course;
-}
-</script>
+</section>
 
 </body>
-</html>

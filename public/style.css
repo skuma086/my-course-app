@@ -1,30 +1,50 @@
 body {
     margin: 0;
     font-family: Arial;
-    background: url("images/bg.jpg") no-repeat center center/cover;
 }
 
-.overlay {
-    background: rgba(0,0,0,0.6);
-    min-height: 100vh;
+.navbar {
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.hero {
+    height: 400px;
+    background: url("images/bg.jpg") center/cover;
     color: white;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 150px;
 }
 
-.box {
-    background: rgba(255,255,255,0.1);
-    margin: 20px auto;
-    padding: 20px;
-    width: 300px;
+.courses {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
     border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
 }
 
 button {
     padding: 10px 20px;
-    border: none;
     background: orange;
+    border: none;
     color: white;
-    font-size: 16px;
     cursor: pointer;
 }
