@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Course Academy</title>
+    <title>My Course Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Welcome to My Course Academy</h1>
-</header>
+<div class="overlay">
 
-<section class="hero">
-    <h2>Learn Skills for the Future</h2>
-    <p>Select a course below</p>
-</section>
+    <h1>Welcome to Our Training Institute</h1>
 
-<section class="courses">
+    <!-- Course Dropdown -->
+    <div class="box">
+        <label>Select Course:</label>
+        <select id="course">
+            <option value="">-- Select Course --</option>
+            <option value="course1.html">Web Development</option>
+            <option value="course2.html">Data Analytics</option>
+        </select>
 
-    <div class="card" onclick="openCourse('webdev')">
-        <h3>Web Development</h3>
-        <p>Learn HTML, CSS, JavaScript</p>
+        <br><br>
+
+        <button onclick="goToCourse()">View Course</button>
     </div>
 
-    <div class="card" onclick="openCourse('python')">
-        <h3>Python Programming</h3>
-        <p>Master Python from basics</p>
+    <!-- Register Section -->
+    <div class="box">
+        <h3>Want to Register?</h3>
+        <button onclick="location.href='register.html'">
+            Register Now
+        </button>
     </div>
 
-    <div class="card" onclick="openCourse('digital')">
-        <h3>Digital Marketing</h3>
-        <p>Grow your business online</p>
+    <!-- Video Section -->
+    <div class="box">
+        <h3>Watch Demo Class</h3>
+
+        <video width="300" controls>
+            <source src="videos/demo.mp4" type="video/mp4">
+        </video>
+
+        <br><br>
+
+        OR
+
+        <br><br>
+
+        <a href="https://youtube.com" target="_blank">
+            Watch on YouTube
+        </a>
     </div>
 
-</section>
+    <!-- Admin Login -->
+    <div class="box">
+        <button onclick="location.href='admin.html'">
+            Admin Login
+        </button>
+    </div>
 
-<section class="video-section">
-    <h2>Watch Our Demo Class</h2>
+</div>
 
-    <!-- Option 1: Play inside website -->
-    <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameborder="0" allowfullscreen>
-    </iframe>
+<script>
+function goToCourse() {
+    var course = document.getElementById("course").value;
 
-    <!-- Option 2: Redirect button -->
-    <br><br>
-    <a href="https://www.youtube.com" target="_blank">
-        <button>Watch on YouTube</button>
-    </a>
-</section>
+    if(course === "") {
+        alert("Please select a course");
+        return;
+    }
 
-<script src="script.js"></script>
+    window.location.href = course;
+}
+</script>
+
 </body>
 </html>
